@@ -1,7 +1,9 @@
-
-
 import sys,math # für argv und floor funktion
-import pyperclip #latextext wird direkt in die zwischenablage reingeballert
+try:
+    import pyperclip #latextext wird direkt in die zwischenablage reingeballert
+except ModuleNotFoundError:
+    print("\n#####################\nMODULE pyperclip NOT INSTALLED!\n#####################\nType in terminal: sudo python -m pip install pyperclip\n")
+    exit() #latextext wird direkt in die zwischenablage reingeballert
 
 howto="""
 HOW TO USE:
