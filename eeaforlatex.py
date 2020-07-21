@@ -1,10 +1,12 @@
+
+
 import sys,math # für argv und floor funktion
 import pyperclip #latextext wird direkt in die zwischenablage reingeballert
 
 howto="""
 HOW TO USE:
 python eeaforlatex.py a p
- - returns a^b mod p calculated-
+ - returns a^b mod p calculated
  - represented for latex for easy copy paste
 """
 
@@ -22,7 +24,8 @@ kopf=f"""\\textbf{{Berechnung der Inversen mittels EEA}}\\\\
 i & $q_{{i-1}}$ & $r_i$ & $s_i$ & $t_i$ \\\\ %header
 \hline \hline
 """
-
+# nutze den erweiterten euklidischen algorithmus mod inv. algorithmus
+# aus dem buch "kryptographie einfach erklärt" von christof paar
 i=2
 q=[0,0]
 r=[p,a]
@@ -35,7 +38,7 @@ while(True):
     t.append(".") 
     r[i]=r[i-2]%r[i-1]
     if(r[i]==0):
-        result=t[i-1]
+        result=(t[i-1])%p
         break
     else:
         q[i]=math.floor(r[i-2]/r[i-1])    
